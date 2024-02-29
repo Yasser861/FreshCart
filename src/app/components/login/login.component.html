@@ -1,0 +1,36 @@
+<section class="py-4">
+    <h2>Login :</h2>
+    <div *ngIf="apiError.length>0" class="alert alert-danger">
+        {{apiError}}
+    </div>
+    <form (ngSubmit)="handleLogin(loginForm)" class="py-4" [formGroup]="loginForm">
+        
+
+        <label for="email">Email :</label>
+        <input formControlName="email" type="email" id="email" class="form-control my-3">
+        <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors" class="alert alert-danger">
+            <p *ngIf="loginForm.get('email')?.getError('email')">Email invalid</p>
+            <p *ngIf="loginForm.get('email')?.getError('required')">Email is Required</p>
+        </div>
+
+        <label for="password">Password :</label>
+        <input formControlName="password" type="password" id="password" class="form-control my-3">
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors" class="alert alert-danger">
+            <ul *ngIf="loginForm.get('password')?.getError('pattern')">
+                <li>At least 8 characters.</li>
+                <li>Contains at least one uppercase letter.</li>
+                <li>Contains at least one lowercase letter.</li>
+                <li>Contains at least one digit.</li>
+                <li>Contains at least one special character.</li>
+            </ul>
+            <p *ngIf="loginForm.get('password')?.getError('required')">password is Required</p>
+        </div>
+
+
+        <button [disabled]="loginForm.invalid" type="submit" class="btn bg-main text-white d-block ms-auto my-3">
+            <i *ngIf="isLoading" class="fas fa-spin fa-spinner"></i>
+            <span *ngIf="!isLoading">Login</span>
+        </button>
+    </form>
+
+</section>

@@ -1,0 +1,11 @@
+<section class="w-50 mx-auto py-5">
+    <form [formGroup]="orderForm" (ngSubmit)="checkOutVisa(orderForm.value)">
+        <label class="my-1" for="details">Details: </label>
+        <input formControlName="details" type="text" id="details" class="form-control my-1">
+        <label class="my-1" for="phone">Phone: </label>
+        <input formControlName="phone" type="text" id="phone" class="form-control my-1">
+        <label class="my-1" for="city">City: </label>
+        <input formControlName="city" type="text" id="city" class="form-control my-1">
+        <button type="submit" class="btn bg-main text-white my-2">Pay</button>
+    </form>
+</section>

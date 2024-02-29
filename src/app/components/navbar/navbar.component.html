@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-main-light">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/home']" ><img src="assets/freshcart-logo.svg" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a *ngIf="isLogin" class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['bg-main','text-white']">Home</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isLogin" class="nav-link" [routerLink]="['/cart']" [routerLinkActive]="['bg-main','text-white']">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isLogin" class="nav-link" [routerLink]="['/products']" [routerLinkActive]="['bg-main','text-white']">Products</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isLogin" class="nav-link" [routerLink]="['/categories']" [routerLinkActive]="['bg-main','text-white']">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isLogin" class="nav-link" [routerLink]="['/brands']" [routerLinkActive]="['bg-main','text-white']">Brands</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="list-unstyled d-flex align-items-center">
+                <li><i class="fas fa-brands fa-instagram me-2 cursor-pointer"></i></li>
+                <li><i class="fas fa-brands fa-facebook me-2 cursor-pointer"></i></li>
+                <li><i class="fas fa-brands fa-tiktok me-2 cursor-pointer"></i></li>
+                <li><i class="fas fa-brands fa-twitter me-2 cursor-pointer"></i></li>
+                <li><i class="fas fa-brands fa-linkedin me-2 cursor-pointer"></i></li>
+                <li><i class="fas fa-brands fa-youtube me-2 cursor-pointer"></i></li>
+            </ul>
+            <li class="nav-item">
+                <a *ngIf="!isLogin" class="nav-link" [routerLink]="['/register']">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="!isLogin" class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+            <li class="nav-item">
+                <a *ngIf="isLogin" class="nav-link" [routerLink]="['/login']" (click)="logOut()">Sign Out</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>

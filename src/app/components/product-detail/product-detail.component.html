@@ -1,0 +1,33 @@
+<div *ngIf="isLoaded" class="spinnr vh-100 d-flex justify-content-center align-items-center">
+    <i class="fas fa-spin fa-spinner text-main fs-2"></i>
+</div>
+<section id="proDetail" *ngIf="!isLoaded">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <owl-carousel-o [options]="customOptions">
+
+                    <ng-container *ngFor="let slide of item.images">
+                      <ng-template carouselSlide>
+                        <img [src]="slide" class="w-100" [alt]="slide" [title]="slide">
+                      </ng-template>
+                    </ng-container>
+                
+                  </owl-carousel-o>
+            </div>
+            <div class="col-md-8">
+                <h4>{{item.title}}</h4>
+                <p class="text-muted">{{item.description}}</p>
+                <span>{{item.category.name}}</span>
+                <div class="rating d-flex justify-content-between container">
+                    <p>{{item.price|currency}}</p>
+                    <div>
+                        <i class="fas fa-star rating-color"></i>
+                        <p class="d-inline-block">{{item.ratingsAverage}}</p>
+                    </div>
+                </div>
+                <button class="btn bg-main text-white mb-2 w-100" (click)="addToCart(item._id)">Add +</button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+<div *ngIf="isLoaded" class="spinnr vh-100 d-flex justify-content-center align-items-center">
+    <i class="fas fa-spin fa-spinner text-main fs-2"></i>
+</div>
+<section *ngIf="!isLoaded" id="categories" class="py-5">
+    <div class="container">
+        <div class="row g-3">
+            <div *ngFor="let category of categoryList" class="col-md-3">
+                <div class="product text-center cursor-pointer">
+                    <img [src]="category.image" height="200" alt="">
+                    <span class="text-main d-block">{{category.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+<div *ngIf="isLoaded" class="spinnr vh-100 d-flex justify-content-center align-items-center">
+    <i class="fas fa-spin fa-spinner text-main fs-2"></i>
+</div>
+<section id="productHome" class="py-5" *ngIf="!isLoaded">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let product of productList" class="col-md-2">
+                <div class="product text-center position-relative">
+                    <div class=" text-center cursor-pointer" [routerLink]="['/productDetail',product.id]">
+                        <img [src]="product.imageCover" class="w-100" alt="">
+                        <span class="text-main">{{product.category.name}}</span>
+                        <h3 class="h6 ">{{product.title.split(' ').splice(0,2).join(' ')}}</h3>
+                        <div class="rating d-flex justify-content-between container">
+                            <p>{{product.price|currency}}</p>
+                            <div>
+                                <i class="fas fa-star rating-color"></i>
+                                <p class="d-inline-block">{{product.ratingsAverage}}</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <button (click)="addToCart(product.id)" class="btn bg-main text-white mb-2">Add +</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

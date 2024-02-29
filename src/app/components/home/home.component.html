@@ -1,0 +1,23 @@
+<div>
+    <div class="row g-0">
+        <div class="col-md-9">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide><img height="400" src="assets/slider-image-1.jpeg" alt=""></ng-template>  
+                <ng-template carouselSlide><img height="400" src="assets/slider-image-2.jpeg" alt=""></ng-template>  
+                <ng-template carouselSlide><img height="400" src="assets/slider-image-3.jpeg" alt=""></ng-template>  
+            </owl-carousel-o>
+        </div>
+        <div class="col-md-3">
+            <img height="200" class="w-100" src="assets/slider-image-2.jpeg" alt="">
+            <img height="200" class="w-100" src="assets/slider-image-3.jpeg" alt="">
+        </div>
+    </div>
+</div>
+
+<app-category-slider></app-category-slider>
+<div *ngIf="isLoaded" class="spinnr vh-100 d-flex justify-content-center align-items-center">
+    <i class="fas fa-spin fa-spinner text-main fs-2"></i>
+</div>
+<section class="text-center py-5" *ngIf="!isLoaded">
+    <img src="../../../assets/R (1)1.png" class="w-50" alt="logo">
+</section>
